@@ -112,7 +112,7 @@ def aggregate_rss(input_path: str, output_path: str) -> None:
     out_channel = ET.SubElement(rss, "channel")
 
     ET.SubElement(out_channel, "title").text = "微博热搜榜 - 聚合版"
-    ET.SubElement(out_channel, "link").text = "https://tophub.today/n/KqndgxeLl9"
+    ET.SubElement(out_channel, "link").text = "https://s.weibo.com/top/summary"
     ET.SubElement(out_channel, "description").text = "每个条目包含一个时刻的所有热搜"
     ET.SubElement(out_channel, "language").text = "zh-cn"
     # 频道构建时间要求 GMT。
@@ -124,7 +124,7 @@ def aggregate_rss(input_path: str, output_path: str) -> None:
     ET.SubElement(agg_item, "title").text = (
         f"微博热搜 - {capture_time_bj.strftime('%Y年%m月%d日 %H:%M')}"
     )
-    ET.SubElement(agg_item, "link").text = "https://tophub.today/n/KqndgxeLl9"
+    ET.SubElement(agg_item, "link").text = "https://s.weibo.com/top/summary"
     # item 内容展示用北京时间。
     ET.SubElement(agg_item, "description").text = build_description(
         items, capture_time_bj
